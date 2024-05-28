@@ -37,7 +37,7 @@ collection = client.get_or_create_collection(
 # if st.sidebar.button("Load OFSC Facsheets into Vector DB if loading the page for the first time.", type="primary"):
 @st.cache_resource
 def create_vector():
-      with open("budget_ai.txt") as f:
+      with open("PBSDEWR.txt") as f:
           hansard = f.read()
           text_splitter = RecursiveCharacterTextSplitter(
               chunk_size=500,
@@ -58,8 +58,8 @@ def create_vector():
 create_vector()
 
 # The UI Part
-st.title("👨‍💻 Wazzup!!!! What do you want to know about the Australian Federal Budget 2024?")
-prompt = st.text_area("Please enter what you want to know about the Australian Federal Budget 2024.")
+st.title("👨‍💻 Wazzup!!!! What do you want to know about the Australian Federal Budget 2024 for DEWR?")
+prompt = st.text_area("Please enter what you want to know from the DEWR PBS.")
 
 if st.button("Submit to AI", type="primary"):
      query_results = collection.query(
